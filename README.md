@@ -6,7 +6,7 @@ The settings were done and tested on Debian 12 with the classic network configur
 
 ## How it works: 
 
-Using the standard Linux ip utility, an IPIP tunnel is created on the server and client, with peer-to-peer traffic encapsulated in UDP using the fou kernel module. The chisel utility then creates a persistent http connection between the client and server, enabling two UDP port forwardings from the client to the server and back, allowing encapsulated UDP traffic of the IPIP tunnel to pass through  without the need for a fixed IP address.
+Using the standard Linux ip utility, an IPIP tunnel is created on the server and client, with peer-to-peer traffic encapsulated in UDP using the fou kernel module. The chisel utility then creates a persistent http connection between the client and server, enabling two UDP port forwardings from the client to the server and back, allowing encapsulated UDP traffic of the IPIP tunnel to pass through  without the need for a fixed IP address on client.
 
 ## Steps to do:
 
