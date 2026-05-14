@@ -1,4 +1,4 @@
-# How to create ipip-tunnel in Debian over encrypted http connection with fou and chisel
+# How to create ipip-tunnel over encrypted http connection with fou and chisel in Debian
 
 An example of setting up an HTTP-encapsulated IPIP tunnel on Linux between a client without a fixed IP and a server using chisel
 
