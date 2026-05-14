@@ -2,7 +2,7 @@
 
 An example of setting up an HTTP-encapsulated IPIP tunnel on Linux between a client without a fixed IP and a server using chisel
 
-The settings were done and tested on Debian 12 with the classic network configuration defined in /etc/network/interfaces. After applying these settings, the server and client will be accessible to each other at IP addresses 10.99.99.1 and 10.99.99.2
+The settings were done and tested on Debian 12 with the classic network configuration defined in /etc/network/interfaces. After applying these settings, the server and client will be accessible to each other by IP addresses 10.99.99.1 and 10.99.99.2
 
 ## How it works: 
 
