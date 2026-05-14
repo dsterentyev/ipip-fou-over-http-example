@@ -21,7 +21,7 @@ After=network.target
 
 [Service]
 Type=simple
-ExecStart=/usr/bin/chisel server --port 58180 --auth "user1:*********************" --reverse
+ExecStart=/usr/bin/chisel server --port 58180 --auth "user1:I_AM_PASSWORD_REPLACE_ME" --reverse
 Restart=on-failure
 User=nobody
 Group=nogroup
@@ -57,7 +57,7 @@ Type=simple
 User=nobody
 Group=nogroup
 # The command to execute (adjust paths and arguments)
-ExecStart=/usr/bin/chisel client --auth "user1:*********************" SERVER_IP:58180 R:127.0.0.1:5556:127.0.0.1:5556/udp 127.0.0.1:5555:127.0.0.1:5555/udp
+ExecStart=/usr/bin/chisel client --auth "user1:I_AM_PASSWORD_REPLACE_ME" SERVER_IP:58180 R:127.0.0.1:5556:127.0.0.1:5556/udp 127.0.0.1:5555:127.0.0.1:5555/udp
 Restart=always
 RestartSec=5
  
