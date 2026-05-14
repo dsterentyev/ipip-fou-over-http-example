@@ -14,6 +14,10 @@ First, you need to download and install the deb package of the chisel utility fr
 
 Next, you need to create the systemd unit files for chisel and enable it and create the tunnel interface configuration both on the server and client. Examples are below. 
 
+- SERVER_IP need to be replaced with chisel server public ip-address
+- Sever port 8880 may be changed to any value in range 1024 - 65535
+- Server password I_AM_PASSWORD_REPLACE_ME need to be replaced to random secure sting
+
 ### Server Configuration
 
 #### Server unit file /etc/systemd/system/chisel.service
@@ -24,7 +28,7 @@ After=network.target
 
 [Service]
 Type=simple
-ExecStart=/usr/bin/chisel server --port 58180 --auth "user1:I_AM_PASSWORD_REPLACE_ME" --reverse
+ExecStart=/usr/bin/chisel server --port 8880 --auth "user1:I_AM_PASSWORD_REPLACE_ME" --reverse
 Restart=on-failure
 User=nobody
 Group=nogroup
@@ -60,7 +64,7 @@ Type=simple
 User=nobody
 Group=nogroup
 # The command to execute (adjust paths and arguments)
-ExecStart=/usr/bin/chisel client --auth "user1:I_AM_PASSWORD_REPLACE_ME" SERVER_IP:58180 R:127.0.0.1:5556:127.0.0.1:5556/udp 127.0.0.1:5555:127.0.0.1:5555/udp
+ExecStart=/usr/bin/chisel client --auth "user1:I_AM_PASSWORD_REPLACE_ME" SERVER_IP:8880 R:127.0.0.1:5556:127.0.0.1:5556/udp 127.0.0.1:5555:127.0.0.1:5555/udp
 Restart=always
 RestartSec=5
  
