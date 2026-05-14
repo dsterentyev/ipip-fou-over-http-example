@@ -1,19 +1,22 @@
 # ipip-fou-over-http-example
+
 An example of setting up an HTTP-encapsulated IPIP tunnel on Linux between a client without a fixed IP and a server using chisel
 
 The settings were done and tested on Debian 12 with the classic network configuration defined in /etc/network/interfaces. After applying these settings, the server and client will be accessible to each other at IP addresses 10.99.99.1 and 10.99.99.2
 
-How it works: Using the standard Linux ip utility, an IPIP tunnel is created on the server and client, with peer-to-peer traffic encapsulated in UDP using the fou kernel module. The chisel utility then creates a persistent http connection between the client and server, enabling two UDP port forwardings from the client to the server and back, allowing encapsulated UDP traffic of the IPIP tunnel to pass through  without the need for a fixed IP address.
+## How it works: 
 
-Steps to do:
+Using the standard Linux ip utility, an IPIP tunnel is created on the server and client, with peer-to-peer traffic encapsulated in UDP using the fou kernel module. The chisel utility then creates a persistent http connection between the client and server, enabling two UDP port forwardings from the client to the server and back, allowing encapsulated UDP traffic of the IPIP tunnel to pass through  without the need for a fixed IP address.
+
+## Steps to do:
 
 First, you need to download and install the deb package of the [https://github.com/jpillora/chisel chisel] utility from [https://github.com/jpillora/chisel/releases here] both on server and client
 
 Next, you need to create the systemd unit files for chisel and enable it and create the tunnel interface configuration both on the server and client. Examples are below. 
 
-# Server Configuration
+### Server Configuration
 
-## Server unit file /etc/systemd/system/chisel.service
+#### Server unit file /etc/systemd/system/chisel.service
 ```
 [Unit]
 Description=Chisel Tunnel Server
@@ -30,7 +33,7 @@ Group=nogroup
 WantedBy=multi-user.target
 ```
 
-## Tunnel interface configuration directives ipip/fou (tunXXX) from the file /etc/network/interfaces
+#### Tunnel interface configuration directives ipip/fou (tunXXX) from the file /etc/network/interfaces
 ```
 auto tun100
 iface tun100 inet manual
@@ -43,9 +46,9 @@ iface tun100 inet manual
        down    ip fou del local 127.0.0.1 port 5555
 ```
 
-# Client Configuration 
+### Client Configuration 
 
-## Client unit file /etc/systemd/system/chisel-client.service 
+#### Client unit file /etc/systemd/system/chisel-client.service 
 ```
 [Unit]
 Description=Chisel Client Service
@@ -65,7 +68,7 @@ RestartSec=5
 WantedBy=multi-user.target
 ```
 
-## Tunnel interface configuration directives ipip/fou (tunXXX) from the file /etc/network/interfaces 
+#### Tunnel interface configuration directives ipip/fou (tunXXX) from the file /etc/network/interfaces 
 
 ```
 auto tun100
