@@ -10,7 +10,7 @@ Using the standard Linux ip utility, an IPIP tunnel is created on the server and
 
 ## Steps to do:
 
-First, you need to download and install the deb package of the [https://github.com/jpillora/chisel chisel] utility from [https://github.com/jpillora/chisel/releases here] both on server and client
+First, you need to download and install the deb package of the [chisel](https://github.com/jpillora/chisel) utility from [releases page](https://github.com/jpillora/chisel/releases] both on server and client
 
 Next, you need to create the systemd unit files for chisel and enable it and create the tunnel interface configuration both on the server and client. Examples are below. 
 
