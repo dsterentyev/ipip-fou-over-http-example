@@ -16,7 +16,7 @@ Next, you need to create the systemd unit files for chisel and enable it and cre
 
 - SERVER_IP need to be replaced with chisel server public ip-address
 - Server port 8880 may be changed to any value in range 1024 - 65535
-- Server password I_AM_PASSWORD_REPLACE_ME need to be replaced to random secure sting
+- Server password I_AM_PASSWORD_REPLACE_ME need to be replaced with random secure sting
 
 ### Server Configuration
 
