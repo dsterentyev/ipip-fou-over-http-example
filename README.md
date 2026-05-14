@@ -1,6 +1,6 @@
 # How to create encrypted ipip-tunnel over http with fou (foo over udp) kernel module and chisel utility in Debian
 
-An example of setting up an HTTP-encapsulated IPIP tunnel on Linux between a client without a fixed IP and a server using chisel (fast TCP/UDP tunnel, transported over HTTP, secured via SSH)
+An example of setting up an HTTP-encapsulated IPIP tunnel on Linux between a client without a fixed IP and a server using [chisel](https://github.com/jpillora/chisel) (fast TCP/UDP tunnel, transported over HTTP, secured via SSH)
 
 The settings were done and tested on Debian 12 with the classic network configuration defined in /etc/network/interfaces. After applying these settings, the server and client will be accessible to each other by IP addresses 10.99.99.1 and 10.99.99.2
 
@@ -10,7 +10,7 @@ Using the standard Linux ip utility, an IPIP tunnel is created on the server and
 
 ## Steps to do:
 
-First, you need to download and install the deb package of the [chisel](https://github.com/jpillora/chisel) utility from its [releases page](https://github.com/jpillora/chisel/releases) both on server and client
+First, you need to download and install the deb package of the chisel utility from its [releases page](https://github.com/jpillora/chisel/releases) both on server and client
 
 Next, you need to create the systemd unit files for chisel and enable it and create the tunnel interface configuration both on the server and client. Examples are below. 
 
