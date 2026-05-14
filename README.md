@@ -30,7 +30,7 @@ Group=nogroup
 WantedBy=multi-user.target
 ```
 
-==== Tunnel interface configuration directives ipip/fou (tunXXX) from the file /etc/network/interfaces ====
+## Tunnel interface configuration directives ipip/fou (tunXXX) from the file /etc/network/interfaces
 ```
 auto tun100
 iface tun100 inet manual
@@ -43,9 +43,9 @@ iface tun100 inet manual
        down    ip fou del local 127.0.0.1 port 5555
 ```
 
-=== Client Configuration ===
+# Client Configuration 
 
-==== Client unit file /etc/systemd/system/chisel-client.service ====
+## Client unit file /etc/systemd/system/chisel-client.service 
 ```
 [Unit]
 Description=Chisel Client Service
@@ -65,7 +65,7 @@ RestartSec=5
 WantedBy=multi-user.target
 ```
 
-==== Tunnel interface configuration directives ipip/fou (tunXXX) from the file /etc/network/interfaces ====
+## Tunnel interface configuration directives ipip/fou (tunXXX) from the file /etc/network/interfaces 
 
 ```
 auto tun100
