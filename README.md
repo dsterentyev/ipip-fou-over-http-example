@@ -14,6 +14,7 @@ Next, you need to create the systemd unit files for chisel and enable it and cre
 === Server Configuration ===
 
 ==== Server unit file /etc/systemd/system/chisel.service ====
+```
  [Unit]
  Description=Chisel Tunnel Server
  After=network.target
@@ -27,8 +28,10 @@ Next, you need to create the systemd unit files for chisel and enable it and cre
  
  [Install]
  WantedBy=multi-user.target
+```
 
 ==== Tunnel interface configuration directives ipip/fou (tunXXX) from the file /etc/network/interfaces ====
+```
  auto tun100
  iface tun100 inet manual
         pre-up  modprobe fou
@@ -38,10 +41,12 @@ Next, you need to create the systemd unit files for chisel and enable it and cre
         post-up ip addr add 10.99.99.1 peer 10.99.99.2 dev $IFACE
         down    ip link delete $IFACE
         down    ip fou del local 127.0.0.1 port 5555
+```
 
 === Client Configuration ===
 
 ==== Client unit file /etc/systemd/system/chisel-client.service ====
+```
  [Unit]
  Description=Chisel Client Service
  After=network.target
@@ -58,8 +63,11 @@ Next, you need to create the systemd unit files for chisel and enable it and cre
  
  [Install]
  WantedBy=multi-user.target
+```
 
 ==== Tunnel interface configuration directives ipip/fou (tunXXX) from the file /etc/network/interfaces ====
+
+```
  auto tun100
  iface tun100 inet manual
         pre-up  modprobe fou
@@ -70,5 +78,6 @@ Next, you need to create the systemd unit files for chisel and enable it and cre
         post-up ip route add default dev $IFACE
         down    ip link delete $IFACE
         down    ip fou del local 127.0.0.1 port 5556
+```        
 
 
