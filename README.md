@@ -15,7 +15,7 @@ First, you need to download and install the deb package of the chisel utility fr
 Next, you need to create the systemd unit files for chisel and enable it and create the tunnel interface configuration both on the server and client. Examples are below. 
 
 - SERVER_IP need to be replaced with chisel server public ip-address
-- Sever port 8880 may be changed to any value in range 1024 - 65535
+- Server port 8880 may be changed to any value in range 1024 - 65535
 - Server password I_AM_PASSWORD_REPLACE_ME need to be replaced to random secure sting
 
 ### Server Configuration
